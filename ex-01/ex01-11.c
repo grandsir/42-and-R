@@ -44,8 +44,8 @@ void	ft_putline(char*s)
 /* removing leading spaces */
 void	ft_lstrip(char **str)
 {
-	int		c;
-	int		j;
+	int	c;
+	int	j;
 	char	temp[MAXLINE];
 	char	*s;
 
