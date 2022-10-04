@@ -1,0 +1,6 @@
+Assignment name  : ft_print_first_word
+Expected files   : ex01-12.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program that prints its input one word per line.

@@ -1,0 +1,7 @@
+
+Assignment name  : ft_remove_blanks
+Expected files   : ex01-09.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program to copy its input to its output, replacing each string of one or more blanks by a single blank.

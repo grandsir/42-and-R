@@ -1,0 +1,8 @@
+Assignment name  : ft_repr
+Expected files   : ex01-10.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program to copy its input to its output, 
+replacing each tab by \t, each backspace by \b, and each backslash by \.
+This makes tabs and backspace visible in an unambiguous way.

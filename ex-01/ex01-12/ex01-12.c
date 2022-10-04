@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex01-08.c                                                         */
+/* file: ex01-11.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,12 +16,15 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/01 09:34.                                              */
-/* updated: 2022/13/01 17:25.                                              */
+/* created: 2022/11/01 17:29.                                              */
+/* updated: 2022/14/01 13:22.                                              */
 /* *********************************************************************** */
 
-
 #include <unistd.h>
+
+#define IN 1
+#define OUT 0
+#define MAXLINE 1000
 
 /* Defining our own functions */
 void	ft_putchar(char c)
@@ -29,69 +32,76 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putline(char *str)
+void	ft_putline(char*s)
 {
-	while (*str)
+	while (*s)
 	{
-		write(1, &(*(str++)), 1);
-	}	
-}
-
-void	ft_putint(int num)
-{
-	if (num < 0)
-	{
-		ft_putchar('-');
-		num = -num;
-	}
-
-	if (num >= 10)
-	{
-		ft_putint(num / 10);
-		num %= 10;
-	}
-
-	if (num < 10)
-	{
-		ft_putchar(num + '0');
+		ft_putchar(*s);
+		++s;
 	}
 }
 
-/* K&R Solution */
-int	ft_count_char(char *str, char c)
+/* removing leading spaces */
+void	ft_lstrip(char **str)
 {
-	int	counter;
+	int	c;
+	int	j;
+	char	temp[MAXLINE];
+	char	*s;
 
-	counter = 0;
-	while (*str)
+	c = 0;
+	j = 0;
+	s = *str;
+	while ((s[c] == ' ') || (s[c] == '\t') || (s[c] == '\n'))
 	{
-		if (*str == c)
+		++c;
+	}
+	while (s[c])
+	{
+		temp[j++] = s[c++];
+	}
+	temp[j] = '\0';
+	*str = temp;
+}
+
+/* K & R Solution */
+void	ft_print_first_word(char *s)
+{
+	int	state;
+
+	ft_lstrip(&s);
+	state = IN;
+	while (*s)
+	{
+		if (*s == '\n')
 		{
-			counter++;
+			state = IN;
+			ft_putchar('\n');
+			while ((*(s) == ' ') || (*(s) == '\t') || (*(s) == '\n'))
+			{
+				++s;
+			}
 		}
-		str++;
+		if (*s == ' ')
+		{
+			state = OUT;
+		}
+		if (state == IN)
+		{
+			ft_putchar(*s);
+		}
+		++s;
 	}
-
-	return (counter);
 }
 
-/* I did not write my own ft_printf because 
- * I don't want to write 1500 lines of code.
- */
-int	main(int argc, char **argv)
+int	main(int argc, char	**argv)
 {
 	char	*string;
 
 	if (argc > 1)
 	{
 		string = *(++argv);
-
-		ft_putline("Found tabs: ");
-		ft_putint(ft_count_char(string, '\t'));
-		ft_putline(", spaces: ");
-		ft_putint(ft_count_char(string, ' '));
-		ft_putline(", newlines: ");
-		ft_putint(ft_count_char(string, '\n'));
+		ft_print_first_word(string);
 	}
 	ft_putchar('\n');
 	return (0);

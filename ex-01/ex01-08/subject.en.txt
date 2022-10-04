@@ -1,0 +1,6 @@
+Assignment name  : ft_count_char
+Expected files   : ex01-08.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program to count blanks, tabs, and newlines.
