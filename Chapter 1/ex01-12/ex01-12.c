@@ -16,8 +16,8 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/11/01 17:29.                                              */
-/* updated: 2022/14/01 13:22.                                              */
+/* created: 2022/10/02 17:29.                                              */
+/* updated: 2022/10/03 16:29.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
@@ -30,15 +30,6 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-}
-
-void	ft_putline(char*s)
-{
-	while (*s)
-	{
-		ft_putchar(*s);
-		++s;
-	}
 }
 
 /* removing leading spaces */
@@ -60,6 +51,7 @@ void	ft_lstrip(char **str)
 	{
 		temp[j++] = s[c++];
 	}
+
 	temp[j] = '\0';
 	*str = temp;
 }
