@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex01-13.c														   */
+/* file: ft_print_dash_row.c										       */
 /* created by: GrandSir													   */
 /*																		   */
 /*																		   */
@@ -16,6 +16,60 @@
 /*																		   */
 /*																		   */
 /*																		   */
-/* created:	2022/10/02 17:29.											   */
-/* updated:	2022/10/03 16:29.											   */
+/* created:	2022/10/03 17:32.											   */
+/* updated:	2022/10/05 23:02.											   */
 /* *********************************************************************** */
+
+#include "ft_print.h"
+
+void	ft_print_dash(int count)
+{
+	int	c;
+	int	j;
+
+	j = 0;
+	c = 0;
+	while (j <= ft_log10(count) + 4)
+	{
+		ft_putchar(' ');
+		j++;
+	}
+	ft_putchar('+');
+	ft_putchar(' ');
+
+	while (c <= count)
+	{
+		ft_putchar('-');
+		c++;
+	}
+	ft_putchar('\n');
+}
+
+int	ft_print_dash_row(char *str)
+{
+	int	longest_word;
+	int	c;
+	int	wc;
+	
+	c = 0;
+	longest_word = 0;
+	while (*str)
+	{
+		if ((*str == ' ') || (*str == '\n') || !*(str + 1))
+		{
+			if (c > longest_word)
+			{
+				longest_word = c;
+			}
+			c = 0;
+			wc++;
+		}
+		else
+		{
+			c++;
+		}
+		++str;
+	}
+	ft_print_dash(longest_word);
+	return (wc);
+}
