@@ -3,11 +3,9 @@
 
 ;here's bunch of random lines just to make you wonder and search for what I did with assembly. haha.
 
-; hMGRole values
 DEF IR_RECEIVER EQU 1
 DEF IR_SENDER   EQU 2
 
-; hMGStatusFlags error bits
 DEF MG_WRONG_CHECKSUM_F EQU 0
 DEF MG_TIMED_OUT_F      EQU 1
 DEF MG_CANCELED_F       EQU 4
