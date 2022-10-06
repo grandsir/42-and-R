@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex01-13.h                                                         */
+/* file: ex01-11.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -17,17 +17,26 @@
 /*                                                                         */
 /*                                                                         */
 /* created: 2022/10/03 11:29.                                              */
-/* updated: 2022/10/05 21:03.                                              */
+/* updated: 2022/10/05 14:55.                                              */
 /* *********************************************************************** */
 
-#ifndef FT_PRINT
-#define FT_PRINT
+#include "ft_histogram.h"
 
-int	ft_print_dash_row(char *str);
-void	ft_print_num_row(char *str, int word_count);
-void	ft_putchar(char c);
-void	ft_putline(char*s);
-void 	ft_putint(int num);
-int	ft_log10(int num);
+void	ft_h_histogram(char *str)
+{
+	int	wc;
 
-#endif
+	wc = ft_print_dash_row(str);
+	ft_print_num_row(str, wc);
+	ft_print_dash_row(str);
+}
+
+int	main(int argc, char	**argv)
+{
+	if (argc > 1)
+	{
+		ft_h_histogram(*(++argv));
+	}
+	ft_putchar('\n');
+	return (0);
+}

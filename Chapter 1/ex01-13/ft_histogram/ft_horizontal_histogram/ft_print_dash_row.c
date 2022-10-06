@@ -16,58 +16,53 @@
 /*																		   */
 /*																		   */
 /*																		   */
-/* created:	2022/10/05 22:07.											   */
-/* updated:	2022/10/05 22:59.											   */
+/* created:	2022/10/05 17:32.											   */
+/* updated:	2022/10/06 11:45.											   */
 /* *********************************************************************** */
 
+#include "ft_histogram.h"
 
-#include "ft_print.h"
-
-void	ft_print_histogram(int word)
+void	ft_print_dash(int count)
 {
-	int	i;
-
-	i = 0;
-	while (i < word)
-	{
-		ft_putline("▋");
-		i++;
-	}
-}
-
-void	ft_put_new_number(int num, int word, int word_count)
-{
-	int	sp;
+	int	c;
 	int	j;
 
-	sp = ft_log10(word_count) - ft_log10(num);
-	while (j < sp)
+	j = 0;
+	c = 0;
+	while (j < ft_log10(count) + 3)
 	{
 		ft_putchar(' ');
 		j++;
 	}
-	ft_putint(num);
+	ft_putchar('+');
 	ft_putchar(' ');
-	ft_putchar('|');
-	ft_putline("  ");
-	ft_print_histogram(word);
+
+	while (c < count)
+	{
+		ft_putchar('-');
+		c++;
+	}
 	ft_putchar('\n');
 }
 
-void	ft_print_num_row(char *str, int word_count)
+int	ft_print_dash_row(char *str)
 {
-	int	i;
+	int	longest_word;
 	int	c;
+	int	wc;
 
 	c = 0;
-	i = 0;
+	longest_word = 0;
 	while (*str)
 	{
 		if ((*str == ' ') || (*str == '\n') || !*(str + 1))
 		{
-			ft_put_new_number(++i, c, word_count);
-			ft_putchar('\n');
+			if (c > longest_word)
+			{
+				longest_word = c;
+			}
 			c = 0;
+			wc++;
 		}
 		else
 		{
@@ -75,4 +70,6 @@ void	ft_print_num_row(char *str, int word_count)
 		}
 		++str;
 	}
+	ft_print_dash(longest_word);
+	return (wc);
 }

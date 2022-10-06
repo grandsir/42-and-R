@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ft_print_dash_row.c										       */
+/* file: ft_utils.c										               */
 /* created by: GrandSir													   */
 /*																		   */
 /*																		   */
@@ -16,60 +16,53 @@
 /*																		   */
 /*																		   */
 /*																		   */
-/* created:	2022/10/03 17:32.											   */
-/* updated:	2022/10/05 23:02.											   */
+/* created:	2022/10/05 14:32.											   */
+/* updated:	2022/10/06 11:47.											   */
 /* *********************************************************************** */
 
-#include "ft_print.h"
+#include <unistd.h>
+#include "ft_histogram.h"
 
-void	ft_print_dash(int count)
+int	ft_log10(int num)
 {
-	int	c;
-	int	j;
+	int	base;
 
-	j = 0;
-	c = 0;
-	while (j <= ft_log10(count) + 4)
+	base = 0;
+	while (num >= 10)
 	{
-		ft_putchar(' ');
-		j++;
+		num /= 10;
+		base++;
 	}
-	ft_putchar('+');
-	ft_putchar(' ');
-
-	while (c <= count)
-	{
-		ft_putchar('-');
-		c++;
-	}
-	ft_putchar('\n');
+	return (base);
 }
 
-int	ft_print_dash_row(char *str)
+void	ft_putchar(char c)
 {
-	int	longest_word;
-	int	c;
-	int	wc;
-	
-	c = 0;
-	longest_word = 0;
-	while (*str)
+	write(1, &c, 1);
+}
+
+void	ft_putline(char*s)
+{
+	while (*s)
 	{
-		if ((*str == ' ') || (*str == '\n') || !*(str + 1))
-		{
-			if (c > longest_word)
-			{
-				longest_word = c;
-			}
-			c = 0;
-			wc++;
-		}
-		else
-		{
-			c++;
-		}
-		++str;
+		ft_putchar(*s);
+		++s;
 	}
-	ft_print_dash(longest_word);
-	return (wc);
+}
+
+void	ft_putint(int num)
+{
+	if (num < 0)
+	{
+		ft_putchar('-');
+		num = -num;
+	}
+
+	if (num >= 10)
+	{
+		ft_putint(num / 10);
+		num %= 10;
+	}
+
+	ft_putchar(num + '0');
 }
