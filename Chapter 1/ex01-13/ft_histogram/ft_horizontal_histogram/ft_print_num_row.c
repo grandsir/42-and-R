@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ft_print_num_row.c										       */
+/* file: ft_print_num_row.c										           */
 /* created by: GrandSir													   */
 /*																		   */
 /*																		   */
@@ -17,11 +17,11 @@
 /*																		   */
 /*																		   */
 /* created:	2022/10/05 22:07.											   */
-/* updated:	2022/10/06 09:04.											   */
+/* updated:	2022/10/06 11:52.											   */
 /* *********************************************************************** */
 
 
-#include "ft_print.h"
+#include "ft_histogram.h"
 
 void	ft_print_histogram(int word)
 {
