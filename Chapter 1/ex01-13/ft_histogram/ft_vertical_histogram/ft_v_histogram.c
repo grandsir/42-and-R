@@ -17,7 +17,7 @@
 /*                                                                         */
 /*                                                                         */
 /* created: 2022/10/05 18:29.                                              */
-/* updated: 2022/10/06 16:46.                                              */
+/* updated: 2022/10/07 08:47.                                              */
 /* *********************************************************************** */
 
 /* Usage without linker: cc ex01-13.c ft_print_dash_row.c utils.c ft_print_num_row.c */
