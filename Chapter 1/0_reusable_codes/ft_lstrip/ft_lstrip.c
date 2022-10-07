@@ -1,6 +1,6 @@
 /* *********************************************************************** */
-/* file: ex01-12.c                                                         */
-/* created by: GrandSir													   */
+/* file: ft_lstrip.c                                                       */
+/* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
 /*                ,ggg,        gg      ,ggggggggggg,                       */
@@ -16,23 +16,13 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/02 17:29.                                              */
-/* updated: 2022/10/03 16:29.                                              */
+/* created: 2022/10/07 20:06.                                              */
+/* updated: 2022/10/07 20:06.                                              */
 /* *********************************************************************** */
 
-#include <unistd.h>
-
-#define IN 1
-#define OUT 0
 #define MAXLINE 1000
 
-/* Defining our own functions */
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-/* removing leading spaces */
+/* deletes leading spaces from string */
 void	ft_lstrip(char **str)
 {
 	int		c;
@@ -54,47 +44,4 @@ void	ft_lstrip(char **str)
 
 	temp[j] = '\0';
 	*str = temp;
-}
-
-/* K & R Solution */
-void	ft_print_first_word(char *s)
-{
-	int	state;
-
-	ft_lstrip(&s);
-	state = IN;
-	while (*s)
-	{
-		if (*s == '\n')
-		{
-			state = IN;
-			ft_putchar('\n');
-			while ((*(s) == ' ') || (*(s) == '\t') || (*(s) == '\n'))
-			{
-				++s;
-			}
-		}
-		if (*s == ' ')
-		{
-			state = OUT;
-		}
-		if (state == IN)
-		{
-			ft_putchar(*s);
-		}
-		++s;
-	}
-}
-
-int	main(int argc, char	**argv)
-{
-	char	*string;
-
-	if (argc > 1)
-	{
-		string = *(++argv);
-		ft_print_first_word(string);
-	}
-	ft_putchar('\n');
-	return (0);
 }

@@ -1,6 +1,6 @@
 /* *********************************************************************** */
-/* file: ex01-12.c                                                         */
-/* created by: GrandSir													   */
+/* file: ft_reverse_str.c                                                  */
+/* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
 /*                ,ggg,        gg      ,ggggggggggg,                       */
@@ -16,85 +16,28 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/02 17:29.                                              */
-/* updated: 2022/10/03 16:29.                                              */
+/* created: 2022/10/07 20:14.                                              */
+/* updated: 2022/10/07 20:14.                                              */
 /* *********************************************************************** */
 
-#include <unistd.h>
-
-#define IN 1
-#define OUT 0
 #define MAXLINE 1000
 
-/* Defining our own functions */
-void	ft_putchar(char c)
+void	ft_reverse_str(char *str[])
 {
-	write(1, &c, 1);
-}
-
-/* removing leading spaces */
-void	ft_lstrip(char **str)
-{
-	int		c;
-	int		j;
-	char	temp[MAXLINE];
+	char	line[MAXLINE];
+	int		l;
+	int		i;
 	char	*s;
 
-	c = 0;
-	j = 0;
 	s = *str;
-	while ((s[c] == ' ') || (s[c] == '\t') || (s[c] == '\n'))
+	l = ft_strlen(s);
+	i = 0;
+	while (l > 0)
 	{
-		++c;
-	}
-	while (s[c])
-	{
-		temp[j++] = s[c++];
+		line[i++] = *(s + --l);
 	}
 
-	temp[j] = '\0';
-	*str = temp;
-}
+	line[i++] = '\0';
 
-/* K & R Solution */
-void	ft_print_first_word(char *s)
-{
-	int	state;
-
-	ft_lstrip(&s);
-	state = IN;
-	while (*s)
-	{
-		if (*s == '\n')
-		{
-			state = IN;
-			ft_putchar('\n');
-			while ((*(s) == ' ') || (*(s) == '\t') || (*(s) == '\n'))
-			{
-				++s;
-			}
-		}
-		if (*s == ' ')
-		{
-			state = OUT;
-		}
-		if (state == IN)
-		{
-			ft_putchar(*s);
-		}
-		++s;
-	}
-}
-
-int	main(int argc, char	**argv)
-{
-	char	*string;
-
-	if (argc > 1)
-	{
-		string = *(++argv);
-		ft_print_first_word(string);
-	}
-	ft_putchar('\n');
-	return (0);
+	*str = line;
 }
