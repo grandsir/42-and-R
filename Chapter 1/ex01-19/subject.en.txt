@@ -1,0 +1,19 @@
+Assignment name  : ft_revers_stre
+Expected files   : ex01-19.c, ft_reverse_str.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a function ft_reverse_str(s) that reverses the character
+string s. Use it to write a program that reverses its input a line at a time.
+
+$> ./a.out "hi
+how
+are
+you?
+"
+
+> Output: 
+ih
+woh
+era
+?uoy

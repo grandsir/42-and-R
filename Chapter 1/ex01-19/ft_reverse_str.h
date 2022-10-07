@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex01-18.c                                                         */
+/* file: ft_reverse_str.h                                                  */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,85 +16,16 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/07 10:02.                                              */
-/* updated: 2022/10/07 11:56.                                              */
+/* created: 2022/10/07 19:34.                                              */
+/* updated: 2022/10/07 19:36.                                              */
 /* *********************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#define MAXLINE 1000
+#ifndef FT_REVERSE_STR_H
+# define FT_REVERSE_STR_H
 
-/* Defining our own functions */
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
+void	ft_putline(char *str);
+int		ft_strlen(char *s);
+void	ft_reverse_str(char *str[]);
 
-void	ft_putline(char *str)
-{
-	while (*str)
-	{
-		ft_putchar(*(str++));
-	}
-}
-
-int	ft_getline(char line[], char **arg)
-{
-	int		c;
-	int		i;
-	char	*s;
-
-	c = 0;
-	i = 0;
-	s = *arg;
-	while (*s)
-	{
-		*arg = *arg + 1;
-		line[i] = *s;
-		i++;
-		if (*s == '\n')
-		{
-			break ;
-		}
-		s++;
-	}
-	line[i] = '\0';
-	return (i);
-}
-
-/* K&R Solution */
-void	ft_remove_trailing_spaces(char *str)
-{
-	char	line[MAXLINE];
-	int		s;
-	int		l;
-
-	while (*str)
-	{
-		l = ft_getline(line, &str);
-		s = l;
-		while (line[s] == ' ' || line[s] == '\t' || !line[s])
-		{
-			s--;
-		}
-		if (s != 0)
-		{
-			s++;
-		}
-		line[s] = '\0';
-		ft_putline(line);
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		ft_remove_trailing_spaces(*(++argv));
-	}
-	else
-	{
-		ft_putchar('\n');
-	}
-	return (0);
-}
+#endif
