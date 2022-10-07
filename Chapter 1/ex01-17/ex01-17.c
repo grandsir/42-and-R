@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ft_v_histogram.c                                                  */
+/* file: ex01-17.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,29 +16,77 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/05 18:29.                                              */
-/* updated: 2022/10/06 16:46.                                              */
+/* created: 2022/10/06 18:26.                                              */
+/* updated: 2022/10/06 23:31.                                              */
 /* *********************************************************************** */
 
-/* Usage without linker: cc ex01-13.c ft_print_dash_row.c utils.c ft_print_num_row.c */
+#include <unistd.h>
+#include <stdio.h>
+#define MAXLINE 1000
 
-#include "ft_histogram.h"
-
-void    ft_v_histogram(char *str)
+void	ft_putchar(char c)
 {
-    int    l;
-
-    l = ft_print_chart(str);
-    ft_print_bottom_line(str, l);
-
+	write(1, &c, 1);
 }
 
-int    main(int argc, char    **argv)
+void	ft_putline(char *str)
 {
-    if (argc > 1)
-    {
-        ft_v_histogram(*(++argv));
-    }
-    ft_putchar('\n');
-    return (0);
+	while (*str)
+	{
+		ft_putchar(*(str++));
+	}
+}
+
+int	ft_getline(char line[], char **arg)
+{
+	int		c;
+	int		i;
+	char	*s;
+
+	c = 0;
+	i = 0;
+	s = *arg;
+
+	while (*s)
+	{
+		*arg = *arg + 1;
+		line[i] = *s;
+		i++;
+
+		if (*s == '\n')
+		{
+			break ;
+		}
+		s++;
+	}
+
+	line[i] = '\0';
+
+	return (i);
+}
+
+void	ft_print_long_lines(char *str)
+{
+	char	line[MAXLINE];
+	int		s;
+	int		l;
+
+	while (*str)
+	{
+		l = ft_getline(line, &str);
+		if (l > 80)
+		{
+			ft_putline(line);
+		}
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
+	{
+		ft_print_long_lines(*(++argv));
+	}
+
+	return (0);
 }
