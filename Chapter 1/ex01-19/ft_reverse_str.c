@@ -53,7 +53,7 @@ int	ft_strlen(char *s)
 
 void	ft_reverse_str(char *str[])
 {
-	char	line[1000];
+	char	line[MAXLINE];
 	int		l;
 	int		i;
 	char	*s;
