@@ -17,11 +17,10 @@
 /*                                                                         */
 /*                                                                         */
 /* created: 2022/10/07 10:02.                                              */
-/* updated: 2022/10/07 11:56.                                              */
+/* updated: 2022/10/07 12:25                                               */
 /* *********************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 #define MAXLINE 1000
 
 /* Defining our own functions */
