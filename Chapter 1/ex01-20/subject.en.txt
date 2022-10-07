@@ -1,0 +1,18 @@
+Assignment name  : ft_detab
+Expected files   : ex01-20.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program detab that replaces tabs in the input with the
+proper number of blanks to space to the next tab stop. Assume a fixed set of
+tab stops, say every n columns.
+
+Input:
+$> ./a.out "			selam"
+
+Output:
+Tabbed Version:
+\t\tselam
+
+Detabbed Version:
+        selam

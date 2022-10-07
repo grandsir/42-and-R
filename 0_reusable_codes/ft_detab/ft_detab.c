@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ft_putline.c                                                      */
+/* file: ft_detab.c                                                        */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,17 +16,35 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/07 19:58.                                              */
-/* updated: 2022/10/07 19:58.                                              */
+/* created: 2022/10/07 22:41.                                              */
+/* updated: 2022/10/07 22:41.                                              */
 /* *********************************************************************** */
 
-#include <unistd.h>
+#define MAXLINE 1000
+#define NUMBER_OF_SPACES 4
 
-void	ft_putline(char *str)
+void	ft_detab(char *str)
 {
+	char	line[MAXLINE];
+	int		i;
+	int		s;
+
 	while (*str)
 	{
-		ft_putchar(*str);
+		if (*str == '\t')
+		{
+			s = 0;
+			while (s < NUMBER_OF_SPACES)
+			{
+				line[i++] = ' ';
+				s++;
+			}
+		}
+		else
+		{
+			line[i++] = *str;
+		}
 		str++;
-	}	
+	}
+	line[++i] = '\0';
 }

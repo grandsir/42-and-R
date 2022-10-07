@@ -27,5 +27,6 @@ void	ft_putline(char *str)
 	while (*str)
 	{
 		ft_putchar(*str);
+		str++;
 	}	
 }
