@@ -1,0 +1,16 @@
+Assignment name  : ft_remove_trailing_spaces
+Expected files   : ex01-18.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program to remove trailing blanks and tabs from each
+line of input, and to delete entirely blank lines.
+
+$> ./a.out "Why Dennis Ritchie Created This God Damn Language                                         
+why                        
+
+"
+
+Output:
+"Why Dennis Ritchie Created This God Damn Language
+why"
