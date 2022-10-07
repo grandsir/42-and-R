@@ -21,7 +21,6 @@
 /* *********************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 #define MAXLINE 1000
 
 void	ft_putchar(char c)
