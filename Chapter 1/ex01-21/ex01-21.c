@@ -1,6 +1,6 @@
 /* *********************************************************************** */
-/* file: ft_utils.c                                                        */
-/* created by: GrandSir							                           */
+/* file: ex01-21.c                                                         */
+/* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
 /*                ,ggg,        gg      ,ggggggggggg,                       */
@@ -16,53 +16,92 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/05 14:32.		                                       */
-/* updated: 2022/10/07 08:48         			                           */
+/* created: 2022/10/07 22:53.                                              */
+/* updated: 2022/10/07 22:53.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
-#include "ft_histogram.h"
-
-int	ft_log10(int num)
-{
-	int	base;
-
-	base = 0;
-	while (num >= 10)
-	{
-		num /= 10;
-		base++;
-	}
-	return (base);
-}
+#define NUMBER_OF_SPACES 4
+#define MAXLINE 1000
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putline(char*s)
+void	ft_putline(char *str)
+{
+	while (*str)
+	{
+		ft_putchar(*str);
+		str++;
+	}	
+}
+
+void	ft_repr(char*s)
 {
 	while (*s)
-	{
-		ft_putchar(*s);
+	{	
+		if (*s == '\t')
+		{
+			ft_putline("\\t");
+		}
+		else if (*s == '\b')
+		{
+			ft_putline("\\");
+		}
+		else
+		{
+			ft_putchar(*s);
+		}
 		++s;
 	}
 }
 
-void	ft_putint(int num)
+void	ft_entab(char *str)
 {
-	if (num < 0)
+	char	line[MAXLINE];
+	int		i;
+	int		s;
+
+	while (*str)
 	{
-		ft_putchar('-');
-		num = -num;
+		if (*str == ' ')
+		{
+			if (++s == NUMBER_OF_SPACES)
+			{
+				line[i++] = '\t';
+				s = 0;
+			}
+		}
+		else
+		{
+			while (s > 0 && s--)
+			{
+				line[i++] = ' ';
+			}
+			line[i++] = *str;
+		}
+		str++;
+	}
+	line[++i] = '\0';
+	ft_repr(line);
+}
+
+int	main(int argc, char **argv)
+{
+	char	*string;
+
+	string = *(++argv);
+	if (argc > 1)
+	{
+		ft_putline("Spaced Version: ");
+		ft_repr(string);
+		ft_putline("\n\n");
+		ft_putline("Tabbed Version: ");
+		ft_entab(string);
 	}
 
-	if (num >= 10)
-	{
-		ft_putint(num / 10);
-		num %= 10;
-	}
-
-	ft_putchar(num + '0');
+	ft_putchar('\n');
+	return (0);
 }

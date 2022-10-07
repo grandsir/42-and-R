@@ -1,6 +1,6 @@
 /* *********************************************************************** */
-/* file: ft_utils.c                                                        */
-/* created by: GrandSir							                           */
+/* file: ft_entab.c                                                        */
+/* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
 /*                ,ggg,        gg      ,ggggggggggg,                       */
@@ -16,53 +16,39 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/05 14:32.		                                       */
-/* updated: 2022/10/07 08:48         			                           */
+/* created: 2022/10/07 23:26.                                              */
+/* updated: 2022/10/07 23:26.                                              */
 /* *********************************************************************** */
 
-#include <unistd.h>
-#include "ft_histogram.h"
+#define MAXLINE 1000
+#define NUMBER_OF_SPACES 4
 
-int	ft_log10(int num)
+void	ft_entab(char *str)
 {
-	int	base;
+	char	line[MAXLINE];
+	int		i;
+	int		s;
 
-	base = 0;
-	while (num >= 10)
+	while (*str)
 	{
-		num /= 10;
-		base++;
+		if (*str == ' ')
+		{
+			if (++s == NUMBER_OF_SPACES)
+			{
+				line[i++] = '\t';
+				s = 0;
+			}
+		}
+		else
+		{
+			while (s > 0 && s--)
+			{
+				line[i++] = ' ';
+			}
+			line[i++] = *str;
+		}
+		str++;
 	}
-	return (base);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putline(char*s)
-{
-	while (*s)
-	{
-		ft_putchar(*s);
-		++s;
-	}
-}
-
-void	ft_putint(int num)
-{
-	if (num < 0)
-	{
-		ft_putchar('-');
-		num = -num;
-	}
-
-	if (num >= 10)
-	{
-		ft_putint(num / 10);
-		num %= 10;
-	}
-
-	ft_putchar(num + '0');
+	line[++i] = '\0';
+	ft_repr(line);
 }
