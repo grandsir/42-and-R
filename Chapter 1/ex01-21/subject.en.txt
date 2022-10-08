@@ -8,11 +8,11 @@ proper number of blanks to space to the next tab stop. Assume a fixed set of
 tab stops, say every n columns.
 
 Input:
-$> ./a.out "			selam"
+$> ./a.out "			hi"
 
 Output:
 Tabbed Version:
-\t\tselam
+\t\thi
 
 Detabbed Version:
-        selam
+        hi
