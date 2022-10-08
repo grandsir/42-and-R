@@ -23,11 +23,31 @@
 #include <unistd.h>
 #include "ft_remove_comments.h"
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putline(char *s)
+{
+	while (*s)
+	{
+		ft_putchar(*(s++));
+	}
+}
+
 int	main(int argc, char **argv)
 {
+	char	*string;
+
 	if (argc > 1)
 	{
-		ft_remove_comments(&*(++argv));
+		string = *(++argv);
+		ft_remove_comments(&string);
+
+		ft_putline(string);
 	}
+
+	ft_putchar('\n');
 	return (0);
 }

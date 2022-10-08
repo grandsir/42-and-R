@@ -17,11 +17,13 @@
 /*                                                                         */
 /*                                                                         */
 /* created: 2022/10/07 23:56.                                              */
-/* updated: 2022/10/08 10:50.                                              */
+/* updated: 2022/10/08 19:03.                                              */
 /* *********************************************************************** */
 
+
+// This algorithm can be improved.
+
 #include "ft_remove_comments.h"
-#include <stdio.h>
 
 #define MAXLINE 10000
 #define IN 1
@@ -31,8 +33,24 @@ void	ft_remove_comments(char **s)
 {
 	ft_remove_single_comments(&(*s));
 	ft_remove_multi_comments(&(*s));
+}
 
-	printf("%s", *s);
+void	check_quotes(char c, int *q, int *sq)
+{
+	if (c == '"')
+	{
+		if (*q == OUT)
+			*q = IN;
+		else
+			*q = OUT;
+	}
+	if (c == '\'')
+	{
+		if (*sq == OUT)
+			*sq = IN;
+		else
+			*sq = OUT;
+	}
 }
 
 void	ft_remove_single_comments(char **s)
@@ -50,39 +68,12 @@ void	ft_remove_single_comments(char **s)
 
 	while (*str)
 	{
-		if (*str == '"')
-		{
-			if (quote == OUT)
-			{
-				quote = IN;
-			}
-			else
-			{
-				quote = OUT;
-			}
-		}
-		if (*str == '\'')
-		{
-			if (single_quote == OUT)
-			{
-				single_quote = IN;
-			}
-			else
-			{
-				single_quote = OUT;
-			}
-		}
+		check_quotes(*str, &quote, &single_quote);
 
 		if (*str == '/' && *(str + 1) == '/')
-		{
 			if (quote == OUT && single_quote == OUT)
-			{
 				while (*str != '\n' && *str)
-				{
 					str++;
-				}
-			}
-		}
 
 		line[i++] = *(str++);
 	}
@@ -106,39 +97,12 @@ void	ft_remove_multi_comments(char **s)
 
 	while (*str)
 	{
-		if (*str == '"')
-		{
-			if (quote == OUT)
-			{
-				quote = IN;
-			}
-			else
-			{
-				quote = OUT;
-			}
-		}
-		if (*str == '\'')
-		{
-			if (single_quote == OUT)
-			{
-				single_quote = IN;
-			}
-			else
-			{
-				single_quote = OUT;
-			}
-		}
+		check_quotes(*str, &quote, &single_quote);
 
 		if (*str == '/' && *(str + 1) == '*')
-		{
 			if (quote == OUT && single_quote == OUT)
-			{
 				while (*str != '\n' && *str)
-				{
 					str++;
-				}
-			}
-		}
 
 		line[i++] = *(str++);
 	}
