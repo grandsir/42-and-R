@@ -7,7 +7,7 @@ Note: I'm still Reading K&R and updating the repository everyday.
 ## Examples
 
 ### ft_histogram
-[ex01-13]()
+[ex01-13](https://github.com/GrandSir/42-and-R/tree/main/Chapter%201/ex01-13)
 
 subject.en.txt:
 ```
