@@ -21,6 +21,8 @@ Both Horizontal and Vertical.
 
 Histogram should align itself properly when numbers got bigger.
 
+Dashes must be the same length as the longest row/column in the histogram.
+
 // Horizontal 
 $> ./a.out "Why Dennis Ritchie Created This God Damn Language"
    + --------
