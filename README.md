@@ -48,3 +48,36 @@ $> ./a.out "Why Dennis Ritchie Created This God Damn Language"
    + ______________________________________________
        1     2     3     4     5     6     7     8     
 ```
+
+[ex01-23](https://github.com/GrandSir/42-and-R/tree/main/Chapter%201/ex01-23)
+
+subject.en.txt:
+### ft_remove_comments
+```
+Assignment name  : ft_remove_comments.c
+Expected files   : ex01-23.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program to remove all comments from a C program.
+Don't forget to handle quoted strings and character constants properly. C comments do not nest.
+
+Input:'
+#include <stdio.h>      
+// this line will be deleted.
+int main(int argc, char **argv)
+{
+        printf("Hello //quote comment world") // this will not be displayed.
+        /* this also wont be displayed */
+}
+'
+
+Output:
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+        printf("Hello //quote comment world") 
+
+}
+```
