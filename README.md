@@ -63,7 +63,8 @@ Allowed functions: write
 Write a program to remove all comments from a C program.
 Don't forget to handle quoted strings and character constants properly. C comments do not nest.
 
-Input:'
+```
+Input:
 ```
 ```c
 #include <stdio.h>      
@@ -74,7 +75,7 @@ int main(int argc, char **argv)
         /* this also wont be displayed */
 }
 ```
-'
+
 
 ```
 Output:
