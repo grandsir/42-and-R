@@ -49,10 +49,11 @@ $> ./a.out "Why Dennis Ritchie Created This God Damn Language"
        1     2     3     4     5     6     7     8     
 ```
 
+### ft_remove_comments
+
 [ex01-23](https://github.com/GrandSir/42-and-R/tree/main/Chapter%201/ex01-23)
 
 subject.en.txt:
-### ft_remove_comments
 ```
 Assignment name  : ft_remove_comments.c
 Expected files   : ex01-23.c
