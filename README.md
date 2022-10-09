@@ -64,6 +64,8 @@ Write a program to remove all comments from a C program.
 Don't forget to handle quoted strings and character constants properly. C comments do not nest.
 
 Input:'
+```
+```c
 #include <stdio.h>      
 // this line will be deleted.
 int main(int argc, char **argv)
@@ -71,9 +73,14 @@ int main(int argc, char **argv)
         printf("Hello //quote comment world") // this will not be displayed.
         /* this also wont be displayed */
 }
+```
 '
 
+```
 Output:
+```
+
+```c
 #include <stdio.h>
 
 int main(int argc, char **argv)
