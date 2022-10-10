@@ -1,0 +1,15 @@
+Assignment name  : ft_any
+Expected files   : ex02-05.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write the function ft_any(s1,s2), 
+which returns the first location in a string s1 where any character from the string s2 occurs,
+or -1 if s1 contains no characters from s2. 
+
+% ./a.out fsfj f
+0
+% ./a.out asdasd d
+2
+m% /a.out asdasd x
+-1
