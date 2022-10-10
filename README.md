@@ -19,7 +19,7 @@ Allowed functions: write
 Write a program to print a histogram of the lengths of words in its input. 
 Both Horizontal and Vertical.
 
-Histogram should align itself properly when numbers gets bigger.
+Histogram should align itself properly when the numbers gets bigger.
 
 Dashes must be the same length as the longest row/column in the histogram.
 
