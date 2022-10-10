@@ -1,0 +1,17 @@
+Assignment name  : ft_squeeze
+Expected files   : ex02-04.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a function called squeeze(s1,s2)
+that deletes each character in s1 that matches any character in the string s2.
+
+
+% ./a.out "hello world", "world"
+hello 
+
+% ./a.out how h
+ow
+
+% ./a.out "42 & R" "42 & KR"
+
