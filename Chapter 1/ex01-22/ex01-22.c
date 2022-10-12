@@ -56,7 +56,7 @@ int	ft_getline(char line[], char **arg)
 	return (i);
 }
 
-void	ft_fold_line(char *s)
+void	ft_fold_lines(char *s)
 {
 	char	line[MAXLINE];
 	int		l;
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
-		ft_fold_line(*(++argv));
+		ft_fold_lines(*(++argv));
 	}
 	ft_putchar('\n');
 	return (0);

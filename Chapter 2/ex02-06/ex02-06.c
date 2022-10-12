@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex01-21.c                                                         */
+/* file: ex02-06.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,90 +16,40 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/07 22:53.                                              */
-/* updated: 2022/10/07 22:53.                                              */
+/* created: 2022/10/12 15:25.                                              */
+/* updated: 2022/10/12 15:25.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
-#define NUMBER_OF_SPACES 4
-#define MAXLINE 1000
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putline(char *str)
+void	ft_putint(int num)
 {
-	while (*str)
+	if (num < 0)
 	{
-		ft_putchar(*str);
-		str++;
-	}	
-}
-
-void	ft_repr(char*s)
-{
-	while (*s)
-	{	
-		if (*s == '\t')
-		{
-			ft_putline("\\t");
-		}
-		else if (*s == '\b')
-		{
-			ft_putline("\\");
-		}
-		else
-		{
-			ft_putchar(*s);
-		}
-		++s;
+		ft_putchar('-');
+		num = -num;
 	}
-}
-
-void	ft_entab(char *str)
-{
-	char	line[MAXLINE];
-	int		i;
-	int		s;
-
-	while (*str)
+	if (num >= 10)
 	{
-		if (*str == ' ')
-		{
-			if (++s == NUMBER_OF_SPACES)
-				line[i++] = '\t';
-				s = 0;
-		}
-		else
-		{
-			while (s > 0 && s--)
-			{
-				line[i++] = ' ';
-			}
-			line[i++] = *str;
-		}
-		str++;
+		ft_putint(num / 10);
+		num %= 10;
 	}
-	line[++i] = '\0';
-	ft_repr(line);
+	ft_putchar(num + '0');
 }
+
+void	ft_setbits()
+{
+
+}
+
 
 int	main(int argc, char **argv)
 {
-	char	*string;
 
-	string = *(++argv);
-	if (argc > 1)
-	{
-		ft_putline("Spaced Version: ");
-		ft_repr(string);
-		ft_putline("\n\n");
-		ft_putline("Tabbed Version: ");
-		ft_entab(string);
-	}
-
-	ft_putchar('\n');
 	return (0);
 }
