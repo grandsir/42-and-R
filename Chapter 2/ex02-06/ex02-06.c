@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex02-06.c                                                         */
+/* file: ex02-05.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,8 +16,8 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/12 15:25.                                              */
-/* updated: 2022/10/12 15:25.                                              */
+/* created: 2022/10/12 15:25.	                                           */
+/* updated: 2022/10/15 10:54.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
@@ -42,14 +42,10 @@ void	ft_putint(int num)
 	ft_putchar(num + '0');
 }
 
-void	ft_setbits()
+unsigned int	ft_setbits(unsigned int x, int p, int n, unsigned int y)
 {
+	int	mask;
 
-}
-
-
-int	main(int argc, char **argv)
-{
-
-	return (0);
+	mask = ~((~0u) << n);
+	return ((mask & y) << p | ((~mask << p) & x));
 }

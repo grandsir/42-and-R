@@ -1,18 +1,16 @@
-Assignment name  : ft_detab
-Expected files   : ex01-20.c
+Assignment name  : ft_entab
+Expected files   : ex01-21.c
 Allowed functions: write
 --------------------------------------------------------------------------------
 
-Write a program detab that replaces tabs in the input with the
-proper number of blanks to space to the next tab stop. Assume a fixed set of
-tab stops, say every n columns.
+Write a program entab that replaces strings of blanks by the
+minimum number of tabs and blanks to achieve the same spacing. Use the
+same tab stops as for detab. W
 
 Input:
-$> ./a.out "			hi"
+$> ./a.out "        selam"
 
 Output:
-Tabbed Version:
-\t\thi
+Spaced Version:         selam
 
-Detabbed Version:
-        hi
+Tabbed Version: \t\tselam
