@@ -108,14 +108,34 @@ Allow for letters of either case and digits,
 and be prepared to handle cases like a-b-c and a-z0-9 and -a-z.
 Arrange that a leading or trailing - is taken literally.
 
-% ./a.out "printing the alphabet... -a-z"
-printing the alphabet... -abcdefghijklmnopqrstuvwxyz
+```
+Input: % ./a.out "printing the alphabet... -a-z"
+```
 
-% ./a.out "hello world, printing the alphabet... a-b-c 0-9"
-hello world, printing the alphabet... ab-c 0123456789
+```
+Output: printing the alphabet... -abcdefghijklmnopqrstuvwxyz
+```
 
-% ./a.out "hello world, printing the alphabet... a-b-c 0-9 9-0"
-hello world, printing the alphabet... ab-c 0123456789 9876543210
+```
+Input: % ./a.out "hello world, printing the alphabet... a-b-c 0-9"
+```
 
-% ./a.out "hello world, printing the alphabet... a-z0-9"
-hello world, printing the alphabet... abcdefghijklmnopqrstuvwxyz0123456789
+```
+Output: hello world, printing the alphabet... ab-c 0123456789
+```
+
+```
+Input: % ./a.out "hello world, printing the alphabet... a-b-c 0-9 9-0"
+```
+
+```
+Output: hello world, printing the alphabet... ab-c 0123456789 9876543210
+```
+
+```
+Input: % ./a.out "hello world, printing the alphabet... a-z0-9"
+```
+
+```
+Output: hello world, printing the alphabet... abcdefghijklmnopqrstuvwxyz0123456789
+```
