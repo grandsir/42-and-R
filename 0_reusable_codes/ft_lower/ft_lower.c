@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ex02-10.c                                                         */
+/* file: ft_lower.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,36 +16,9 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/12 15:25.	                                           */
-/* updated: 2022/10/15 10:54.                                              */
+/* created: 2022/10/17 18:32.	                                           */
+/* updated: 2022/10/17 18:32.                                              */
 /* *********************************************************************** */
-
-#include <unistd.h>
-#include <stdlib.h>
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putline(char *str)
-{
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}	
-}
 
 void	ft_lower(char **str)
 {
@@ -66,17 +39,4 @@ void	ft_lower(char **str)
 	line[i++] = '\n';
 	line[i++] = '\0';
 	ft_putline(line);
-}
-
-//ternary operators are forbidden so i'll stick with if=else
-int	main(int argc, char **argv)
-{
-	char	*str;
-
-	if (argc > 1)
-	{
-		str = *(++argv);
-		ft_lower(&str);
-	}
-	return (0);
 }

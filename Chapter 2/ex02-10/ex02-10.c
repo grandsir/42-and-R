@@ -16,22 +16,12 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/12 15:25.	                                           */
-/* updated: 2022/10/15 10:54.                                              */
+/* created: 2022/10/17 18:25.	                                           */
+/* updated: 2022/10/17 18:32.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 void	ft_putchar(char c)
 {
@@ -68,7 +58,7 @@ void	ft_lower(char **str)
 	ft_putline(line);
 }
 
-//ternary operators are forbidden so i'll stick with if=else
+//ternary operators are forbidden so i'll stick with if-else
 int	main(int argc, char **argv)
 {
 	char	*str;
