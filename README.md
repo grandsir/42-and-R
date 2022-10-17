@@ -4,7 +4,7 @@ Solutions for The C programming language book, divided into subjects such as 42 
 
 Note: I'm still Reading K&R and updating the repository everyday.
 
-Some of the exercises are not "solvable" that's why there are missing exercises inside folders.
+Some of the exercises are not "solvable", that's why there are missing exercises inside folders.
 
 ## Examples
 
