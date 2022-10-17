@@ -21,7 +21,6 @@
 /* *********************************************************************** */
 
 #include <unistd.h>
-#include <stdlib.h>
 
 void	ft_putchar(char c)
 {
