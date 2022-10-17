@@ -83,7 +83,6 @@ int main(int argc, char **argv)
 ```
 Output:
 ```
-
 ```c
 #include <stdio.h>
 
@@ -93,7 +92,10 @@ int main(int argc, char **argv)
 
 }
 ```
-
+### ft_expand
+[ex03-03](https://github.com/GrandSir/42-and-R/tree/main/Chapter%203/ex03-03)
+subject.en.txt
+```
 Assignment name  : ft_expand
 Expected files   : ex03-03.c
 Allowed functions: write
@@ -105,7 +107,7 @@ and be prepared to handle cases like a-b-c and a-z0-9 and -a-z.
 Arrange that a leading or trailing - is taken literally.
 
 % ./a.out "printing the alphabet... -a-z"
-hello world, printing the alphabet... -abcdefghijklmnopqrstuvwxyz
+printing the alphabet... -abcdefghijklmnopqrstuvwxyz
 
 % ./a.out "hello world, printing the alphabet... a-b-c 0-9"
 hello world, printing the alphabet... ab-c 0123456789
