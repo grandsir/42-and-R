@@ -93,7 +93,9 @@ int main(int argc, char **argv)
 }
 ```
 ### ft_expand
+
 [ex03-03](https://github.com/GrandSir/42-and-R/tree/main/Chapter%203/ex03-03)
+
 subject.en.txt
 ```
 Assignment name  : ft_expand
