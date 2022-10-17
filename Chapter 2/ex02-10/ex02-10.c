@@ -1,5 +1,5 @@
 /* *********************************************************************** */
-/* file: ft_htoi.c                                                         */
+/* file: ex02-10.c                                                         */
 /* created by: GrandSir                                                    */
 /*                                                                         */
 /*                                                                         */
@@ -16,12 +16,12 @@
 /*                                                                         */
 /*                                                                         */
 /*                                                                         */
-/* created: 2022/10/10 12:48.                                              */
-/* updated: 2022/10/10 12:49.                                              */
+/* created: 2022/10/12 15:25.	                                           */
+/* updated: 2022/10/15 10:54.                                              */
 /* *********************************************************************** */
 
 #include <unistd.h>
-#include "ft_print.h"
+#include <stdlib.h>
 
 int	ft_strlen(char *s)
 {
@@ -29,60 +29,54 @@ int	ft_strlen(char *s)
 
 	i = 0;
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
-int	ft_pow(int base, int pow)
+void	ft_putchar(char c)
 {
-	int	c;
-	int	val;
+	write(1, &c, 1);
+}
 
-	val = 1;
-	c = 0;
-	while (c < pow)
+void	ft_putline(char *str)
+{
+	while (*str)
 	{
-		val *= base;
-		c++;
-	}
-	return (val);
+		ft_putchar(*str);
+		str++;
+	}	
 }
 
-int	ft_base_16(char num, int pow)
+void	ft_lower(char **str)
 {
-	if (num >= '0' && num <= '9')
-		return (ft_pow(16, pow) * (num - '0'));
-	else if (num >= 'a' && num <= 'f')
-		return (ft_pow(16, pow) * (num - 'a' + 10));
-	else if (num >= 'A' && num <= 'F')
-		return (ft_pow(16, pow) * (num - 'A' + 10));
-	return (-1);
-}
-
-// iterative solution
-int	htoi(char *s)
-{
-	int	i;
-	int	r;
-	int	b;
+	char	*s;
+	int		i;
+	char	line[1000];
 
 	i = 0;
-	r = 0;
-	b = 0;
-	if (*s == '0' && (*(s + 1) == 'x' || *(s + 1) == 'X'))
-		i += 2;
-	while (s[i])
+	s = *str;
+	while (*s)
 	{
-		b = ft_base_16(s[i], (ft_strlen(s) - 1) - i);
-		if (b == -1)
-		{
-			print_err(s[i], i);
-			return (-1);
-		}
-		r += b;
-		i++;
+		if (*s >= 'A' && *s <= 'Z')
+			line[i++] = (*s - 'A') + 'a';
+		else
+			line[i++] = *s;
+		s++;
 	}
-	return (r);
+	line[i++] = '\n';
+	line[i++] = '\0';
+	ft_putline(line);
+}
+
+//ternary operators are forbidden so i'll stick with if=else
+int	main(int argc, char **argv)
+{
+	char	*str;
+
+	if (argc > 1)
+	{
+		str = *(++argv);
+		ft_lower(&str);
+	}
+	return (0);
 }
