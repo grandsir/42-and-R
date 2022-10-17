@@ -93,3 +93,25 @@ int main(int argc, char **argv)
 
 }
 ```
+
+Assignment name  : ft_expand
+Expected files   : ex03-03.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a function expand(s1,s2) that expands shorthand notations like a-z in the string s1 into the equivalent complete list abc...xyz in s2.
+Allow for letters of either case and digits,
+and be prepared to handle cases like a-b-c and a-z0-9 and -a-z.
+Arrange that a leading or trailing - is taken literally.
+
+% ./a.out "printing the alphabet... -a-z"
+hello world, printing the alphabet... -abcdefghijklmnopqrstuvwxyz
+
+% ./a.out "hello world, printing the alphabet... a-b-c 0-9"
+hello world, printing the alphabet... ab-c 0123456789
+
+% ./a.out "hello world, printing the alphabet... a-b-c 0-9 9-0"
+hello world, printing the alphabet... ab-c 0123456789 9876543210
+
+% ./a.out "hello world, printing the alphabet... a-z0-9"
+hello world, printing the alphabet... abcdefghijklmnopqrstuvwxyz0123456789
