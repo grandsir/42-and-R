@@ -1,0 +1,7 @@
+Assignment name  : ft_itob
+Expected files   : ex03-05.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write the function ft_itob(n,b) that converts the integer n into a base b character representation.
+In particular, ft_itob(n,16) prints hexademical form of n to screen.
