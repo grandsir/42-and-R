@@ -14,4 +14,4 @@ hello
 ow
 
 % ./a.out "42 & R" "42 & KR"
-
+42 & R
