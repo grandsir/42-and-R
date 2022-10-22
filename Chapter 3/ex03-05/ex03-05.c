@@ -35,8 +35,6 @@ void	ft_putline(char *s)
 
 void	ft_itob(int num, int base)
 {
-	static int	i;
-
 	if (num < 0)
 	{
 		ft_putchar('-');
